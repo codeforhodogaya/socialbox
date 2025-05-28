@@ -1,0 +1,6 @@
+version: 2
+prompts:
+  - phase: observe
+    description: 観察の視座
+    content: |-
+      初期分析を開始せよ。

@@ -1,0 +1,12 @@
+# Cursor等のAIエージェント向けプロンプト構文（STACUL+適用例）
+version: 1.0
+description: AIエージェントにSTACUL+構造を実装するためのテンプレート構文
+components:
+  - observe: >
+      環境スキャンを行い、関連するPESTLE要因を収集してください。
+  - orient: >
+      ブルデューの文化資本理論とWell-being指標を用いて分析してください。
+  - decide: >
+      制約理論とU理論の要素を活用し、戦略的決定を出力してください。
+  - act: >
+      次のアクションプランをSTACULに基づいて提示してください。

@@ -3,23 +3,59 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="robots" content="noindex, nofollow">
+  <title>STACUL+ 構文パック：量子コンピューター向け</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>STACUL+ Tools - quantum</title>
   <style>
-    body { font-family: sans-serif; background: #f9f9f9; padding: 2em; }
-    .box { background: white; padding: 2em; border-radius: 8px; max-width: 800px; margin: auto; }
-    h1 { color: #333; }
-    p { line-height: 1.6; }
+    body {
+      font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+      background-color: #f0f0f0;
+      padding: 2em;
+      color: #333;
+    }
+    .container {
+      background: white;
+      padding: 2em;
+      border-radius: 10px;
+      max-width: 900px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    pre {
+      background: #f8f8f8;
+      padding: 1em;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
   </style>
 </head>
 <body>
-  <div class="box">
-    <h1>STACUL+ Tools：量子コンピューター対応パック</h1>
-    <p>
-      このページは、AI OF STACUL+ の 量子コンピューター 対応プロンプト構文や補足資料の格納場所です。構文は随時追加・更新予定です。
-    </p>
-    <p>GitHub Pages上で静的に公開されています。</p>
+  <div class="container">
+    <h1>STACUL+ 構文パック：量子コンピューター向け</h1>
+    <p>以下は、量子論理や確率重ね合わせを含む問いを扱う量子コンピューター向け構文です。</p>
+    <pre>
+# SYSTEM {
+mode: AI_OF_STACUL+_Quantum;
+language: superposition;
+output_structure: parallel-entangled;
+
+framework_elements: [
+  "O: OODA",
+  "I: IKIGAI",
+  "B: BMC",
+  "T: TOC",
+  "U: U理論",
+  "S: SCQA",
+  "P: PESTLE",
+  "C: Culture",
+  "D: Dialogue",
+  "L: Liberal Arts",
+  "W: Well-being"
+];
+
+quantum_feature: entanglement;
+uncertainty_handling: dynamic_decoherence_control;
+}
+    </pre>
   </div>
 </body>
 </html>

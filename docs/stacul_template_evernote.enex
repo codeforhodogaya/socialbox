@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE en-export SYSTEM "http://xml.evernote.com/pub/evernote-export.dtd">
+<en-export export-date="20250530T000000Z" application="Evernote" version="10.63.2">
+  <note>
+    <title>AI OF STACUL+（Evernoteテンプレート）</title>
+    <content>
+      <![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+      <!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd">
+      <en-note>
+        <div><b>📌対象テーマ</b><br/>（ここに対象を記述）</div><br/>
+        <div><b>🔄 OODAループ</b><br/>
+          ①Observe（観察）<br/>
+          ②Orient（意味づけ）<br/>
+          ③Decide（決定）<br/>
+          ④Emotion（感情）<br/>
+          ⑤Act（行動）<br/>
+          ⑥Reflect（振り返り）<br/>
+          ⑦Expand（拡張）
+        </div>
+      </en-note>
+      ]]>
+    </content>
+    <created>20250530T000000Z</created>
+    <updated>20250530T000000Z</updated>
+  </note>
+</en-export>

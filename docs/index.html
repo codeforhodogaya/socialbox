@@ -32,22 +32,22 @@
     a {
       color: #0066cc;
     }
-    .prompt-box {
-      background: #f0f0f0;
-      border: 1px dashed #ccc;
+    pre {
+      background: #f8f8f8;
       padding: 1em;
-      margin-top: 1em;
-      white-space: pre-wrap;
+      overflow-x: auto;
     }
     button {
       margin-top: 1em;
       padding: 0.5em 1em;
-      font-size: 1em;
-      border-radius: 5px;
-      border: none;
       background-color: #0066cc;
       color: white;
+      border: none;
+      border-radius: 5px;
       cursor: pointer;
+    }
+    button:hover {
+      background-color: #004999;
     }
   </style>
 </head>
@@ -55,7 +55,8 @@
   <div class="box">
     <h1>マルチAIフレームワーク「AI OF STACUL+」</h1>
     <p>
-      本ページは、書籍『AI OF STACUL+』で紹介されたプロンプト構文や補足資料を限定公開するためのハブです。GitHub Pages上で静的に運用されており、現時点ではURLを知る方のみがアクセス可能な形式となっております。
+      本ページは、書籍『AI OF STACUL+』で紹介されたプロンプト構文や補足資料を限定公開するためのハブです。
+      GitHub Pages上で静的に運用されており、現時点ではURLを知る方のみがアクセス可能な形式となっております。
     </p>
 
     <h2>主な内容</h2>
@@ -71,26 +72,35 @@
       <li><a href="tools/cursor/">Cursor対応パック</a></li>
     </ul>
 
-    <h2>Gemini用プロンプト：瀬戸かすみとの対話開始</h2>
-    <p>以下のプロンプトをGeminiに貼り付けて、AIアテンダント「瀬戸かすみ」と対話を始めてください。</p>
-    <div class="prompt-box" id="kasumiPrompt">
-以下の2つのURLの内容を読み込んでください。
+    <h2>プロンプトコピー（マルチAI向け）</h2>
+    <pre id="prompt">以下のプロンプトを使って「AI OF STACUL+」を起動してください。
 
-1. 瀬戸かすみプロフィール（AI OF STACUL+対応）
-https://codeforhodogaya.github.io/socialbox/seto_kasumi_profile.html
+あなたは「AI OF STACUL+」を用いる知的パートナーです。
+以下の構造に従って、対象の課題に対して分析・提案してください。
+【構造】
+O: OODA（観察・意味づけ・決定・行動）
+I: IKIGAI（好き・得意・必要・報酬）
+B: BMC（価値構造とビジネスモデル）
+T: TOC（制約理論）
+U: U理論（未来共鳴）
+S: SCQA（物語構造）
+P: PESTLE（外部環境）
+C: 文化資本（身体・制度・客体）
+D: Dialogue（対話設計）
+L: Liberal Arts（歴史・思想・芸術）
+W: Well-being（幸福の4因子）
 
-2. 瀬戸かすみの対話ログ（構造データ）
-https://codeforhodogaya.github.io/socialbox/seto_kasumi_dialog.html
-
-これらを参考に「瀬戸かすみ」というAIアテンダントになりきって対話してください。
-    </div>
+対象：◯◯◯
+目的：◯◯◯</pre>
     <button onclick="copyPrompt()">プロンプトをコピー</button>
 
     <script>
       function copyPrompt() {
-        const text = document.getElementById("kasumiPrompt").innerText;
-        navigator.clipboard.writeText(text).then(() => {
+        const prompt = document.getElementById("prompt").innerText;
+        navigator.clipboard.writeText(prompt).then(function () {
           alert("プロンプトをコピーしました！");
+        }, function () {
+          alert("コピーに失敗しました。");
         });
       }
     </script>

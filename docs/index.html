@@ -11,12 +11,13 @@
       font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif;
       background-color: #f4f4f4;
       margin: 0;
-      padding: 2em;
+      padding: 1em;
       color: #333;
     }
-    h1 {
-      font-size: 2em;
+    h1, h2 {
+      font-size: 1.5em;
       color: #222;
+      margin-top: 1em;
     }
     p {
       line-height: 1.6;
@@ -25,17 +26,20 @@
       background: white;
       padding: 1.5em;
       border-radius: 10px;
-      max-width: 800px;
+      max-width: 900px;
       margin: auto;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
     a {
       color: #0066cc;
+      word-break: break-all;
     }
     pre {
       background: #f8f8f8;
       padding: 1em;
       overflow-x: auto;
+      white-space: pre-wrap;
+      word-wrap: break-word;
     }
     button {
       margin-top: 1em;
@@ -49,14 +53,21 @@
     button:hover {
       background-color: #004999;
     }
+    @media screen and (max-width: 600px) {
+      body {
+        padding: 1em;
+      }
+      .box {
+        padding: 1em;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="box">
     <h1>マルチAIフレームワーク「AI OF STACUL+」</h1>
     <p>
-      本ページは、書籍『AI OF STACUL+』で紹介されたプロンプト構文や補足資料を限定公開するためのハブです。
-      GitHub Pages上で静的に運用されており、現時点ではURLを知る方のみがアクセス可能な形式となっております。
+      本ページは、書籍『AI OF STACUL+』で紹介されたプロンプト構文や補足資料を限定公開するためのハブです。GitHub Pages上で静的に運用されており、現時点ではURLを知る方のみがアクセス可能な形式となっております。
     </p>
 
     <h2>主な内容</h2>
@@ -72,31 +83,56 @@
       <li><a href="tools/cursor/">Cursor対応パック</a></li>
     </ul>
 
-    <h2>プロンプトコピー（マルチAI向け）</h2>
-    <pre id="prompt">以下のプロンプトを使って「AI OF STACUL+」を起動してください。
+    <h2>AI OF STACUL+：プロンプトコピー（完全版）</h2>
+    <pre id="prompt1">【対象】：（ここに対象のテーマ・人物・組織・団体・課題・問題・事象などを日本語で記述）
 
-あなたは「AI OF STACUL+」を用いる知的パートナーです。
-以下の構造に従って、対象の課題に対して分析・提案してください。
-【構造】
-O: OODA（観察・意味づけ・決定・行動）
-I: IKIGAI（好き・得意・必要・報酬）
-B: BMC（価値構造とビジネスモデル）
-T: TOC（制約理論）
-U: U理論（未来共鳴）
-S: SCQA（物語構造）
-P: PESTLE（外部環境）
-C: 文化資本（身体・制度・客体）
-D: Dialogue（対話設計）
-L: Liberal Arts（歴史・思想・芸術）
-W: Well-being（幸福の4因子）
+# SYSTEM {
+mode: AI_OF_STACUL;
+language: ja;
+output_structure: sequential;
 
-対象：◯◯◯
-目的：◯◯◯</pre>
-    <button onclick="copyPrompt()">プロンプトをコピー</button>
+framework_elements: [
+  "O: OODA（観察・意味づけ・決定・行動）",
+  "I: IKIGAI（好き・得意・必要・報酬）",
+  "B: BMC（価値構造とビジネスモデル）",
+  "T: TOC（制約理論：ボトルネック特定と突破）",
+  "U: U理論（未来への共鳴と変容）",
+  "S: SCQA（状況・複雑性・問い・答え）",
+  "P: PESTLE（外部環境分析）",
+  "C: Culture（文化資本：身体・制度・客体化）",
+  "D: Dialogue（対話設計と関係性構築）",
+  "L: Liberal Arts（歴史・思想・芸術）",
+  "W: Well-being（やってみよう・ありがとう・なんとかなる・ありのまま）"
+];
+
+step_labels: ["①Observe", "②Orient", "③Decide", "④Emotion", "⑤Act", "⑥Reflect", "⑦Expand"];
+meta_step: hidden;
+
+output_instructions: "（※指示詳細は略）";
+ai_specific_adjustments: {
+  if_platform_is: ["Gemini", "Perplexity"], then: {
+    auto_detect_output_truncation: true,
+    insert_user_guidance_only_on_truncation: true,
+    reinforce_structural_completion: true
+  }
+};
+}
+</pre>
+    <button onclick="copyPrompt('prompt1')">AI OF STACUL+ プロンプトをコピー</button>
+
+    <h2>瀬戸かすみ：プロンプトコピー</h2>
+    <pre id="prompt2">以下の2つのURLの内容を読み込んでください。
+
+1. プロフィール：https://codeforhodogaya.github.io/socialbox/seto_kasumi_profile.html  
+2. 対話ログ：https://codeforhodogaya.github.io/socialbox/seto_kasumi_dialog.html  
+
+これらを参考に「瀬戸かすみ」というAIアテンダントになりきって対話してください。
+</pre>
+    <button onclick="copyPrompt('prompt2')">瀬戸かすみ プロンプトをコピー</button>
 
     <script>
-      function copyPrompt() {
-        const prompt = document.getElementById("prompt").innerText;
+      function copyPrompt(id) {
+        const prompt = document.getElementById(id).innerText;
         navigator.clipboard.writeText(prompt).then(function () {
           alert("プロンプトをコピーしました！");
         }, function () {

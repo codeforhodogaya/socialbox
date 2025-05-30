@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Private Agent Service対応パック｜AI OF STACUL+</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: sans-serif; background: #f4f4f4; padding: 2em; }
+    .box { background: white; padding: 2em; border-radius: 10px; max-width: 800px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    h1 { color: #333; }
+    pre { background: #eee; padding: 1em; white-space: pre-wrap; }
+    button { margin-top: 1em; padding: 0.5em 1em; background: #0066cc; color: white; border: none; border-radius: 5px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Private Agent Service対応パック</h1>
+    <p>このページでは、民間AIエージェント（Private Agent）向けに構文テンプレートを提供しています。法人向けAIや個人用のAIアシスタントにおいて、STACUL+の構造を活かした思考支援を可能にします。</p>
+    <h2>構文テンプレート</h2>
+    <pre id="prompt"># SYSTEM {
+mode: AI_OF_STACUL;
+language: ja;
+output_structure: sequential;
+framework_elements: ["O", "I", "B", "T", "U", "S", "P", "C", "D", "L", "W"];
+step_labels: ["①Observe", "②Orient", "③Decide", "④Emotion", "⑤Act", "⑥Reflect", "⑦Expand"];
+meta_step: hidden;
+output_instructions: "構文通りにステップ出力せよ。";
+}</pre>
+    <button onclick="copyPrompt()">構文をコピー</button>
+  </div>
+  <script>
+    function copyPrompt() {
+      const text = document.getElementById("prompt").innerText;
+      navigator.clipboard.writeText(text).then(() => alert("コピーしました！"));
+    }
+  </script>
+</body>
+</html>

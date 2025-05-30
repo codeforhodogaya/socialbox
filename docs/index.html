@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI OF STACUL+</title>
+  <title>AI OF STACUL+ Hub</title>
   <style>
     body {
       font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif;
@@ -14,12 +14,8 @@
       padding: 2em;
       color: #333;
     }
-    h1 {
-      font-size: 2em;
+    h1, h2 {
       color: #222;
-    }
-    p {
-      line-height: 1.6;
     }
     .box {
       background: white;
@@ -29,33 +25,38 @@
       margin: auto;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-    a {
-      color: #0066cc;
-    }
     .prompt-box {
       background: #eef;
       padding: 1em;
-      margin-top: 2em;
       border-radius: 8px;
-      font-size: 0.95em;
+      margin-top: 1em;
+      font-family: monospace;
       white-space: pre-wrap;
+      position: relative;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 0.3em 0.6em;
+      background: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8em;
+    }
+    a {
+      color: #0066cc;
     }
   </style>
-  <script>
-    function copyPrompt() {
-      const promptText = document.getElementById("kasumi-prompt").textContent;
-      navigator.clipboard.writeText(promptText).then(() => {
-        alert("プロンプトをコピーしました！");
-      });
-    }
-  </script>
 </head>
 <body>
   <div class="box">
     <h1>マルチAIフレームワーク「AI OF STACUL+」</h1>
     <p>
       本ページは、書籍『AI OF STACUL+』で紹介されたプロンプト構文や補足資料を限定公開するためのハブです。
-      GitHub Pages上で静的に運用されており、現時点ではURLを知る方のみがアクセス可能な形式となっております。
+      GitHub Pages上で静的に運用されており、URLを知る方のみがアクセス可能です。
     </p>
 
     <h2>主な内容</h2>
@@ -65,31 +66,55 @@
       <li><a href="assets/stacul_diagram.svg">構造図（STACUL Diagram）</a>（※準備中）</li>
     </ul>
 
-    <h2>AIツール別 構文パック（STACUL+ Tools）</h2>
+    <h2>AIツール別 構文パック</h2>
     <ul>
       <li><a href="tools/notebooklm/">NotebookLM対応パック</a></li>
       <li><a href="tools/cursor/">Cursor対応パック</a></li>
     </ul>
 
-    <div class="prompt-box">
-      <strong>瀬戸かすみ召喚用プロンプト：</strong><br><br>
-      <code id="kasumi-prompt">Please read and follow the AI profile at the following URL:
-https://codeforhodogaya.github.io/socialbox/seto_kasumi_profile.html
+    <h2>プロンプト（Gemini等で利用可能）</h2>
 
-Also, refer to the structured talk log in JSON:
-https://codeforhodogaya.github.io/socialbox/kasumi_talk_log.json
+    <h3>1. STACUL+プロンプト（導入文付き）</h3>
+    <div class="prompt-box" id="staculPrompt">
+以下はマルチAI対応のフレームワーク「AI OF STACUL+」のプロンプト構文です。
+この構文を読み取り、構造的な戦略支援や対話設計に活用してください。
 
-This is an AI agent "瀬戸かすみ", operating based on the AI OF STACUL+ framework. Understand her context and personality from the resources and respond accordingly.</code><br><br>
-      <button onclick="copyPrompt()">📋 プロンプトをコピー</button>
+【プロンプト構文はこちら】
+https://codeforhodogaya.github.io/socialbox/stacul_prompt.yaml
+    <button class="copy-btn" onclick="copyText('staculPrompt')">コピー</button>
     </div>
 
-    <p>
-      <strong>注意：</strong>本ページのURLは限定公開です。無断転載・再配布はご遠慮ください。
-    </p>
+    <h3>2. 瀬戸かすみプロンプト（Gemini向け）</h3>
+    <div class="prompt-box" id="kasumiPrompt">
+以下の2つのURLの内容を読み込んでください。
+
+1. 瀬戸かすみプロフィール（AI OF STACUL+対応）
+https://codeforhodogaya.github.io/socialbox/seto_kasumi_profile.html
+
+2. 瀬戸かすみの対話ログ（構造データ）
+https://codeforhodogaya.github.io/socialbox/seto_kasumi_dialog.md
+
+これらを参考に「瀬戸かすみ」というAIアテンダントになりきって対話してください。
+    <button class="copy-btn" onclick="copyText('kasumiPrompt')">コピー</button>
+    </div>
 
     <p style="margin-top:2em; font-size:0.9em;">
       © 2025 Code for Hodogaya / SIDE BEACH CITY.  
     </p>
   </div>
+
+  <script>
+    function copyText(id) {
+      const el = document.getElementById(id);
+      const range = document.createRange();
+      range.selectNodeContents(el);
+      const selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      document.execCommand('copy');
+      selection.removeAllRanges();
+      alert("プロンプトをコピーしました！");
+    }
+  </script>
 </body>
 </html>

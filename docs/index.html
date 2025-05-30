@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI OF STACUL+ 構文ハブ</title>
+  <title>AI OF STACUL+</title>
   <style>
     body {
       font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif;
@@ -32,7 +32,7 @@
     }
     a {
       color: #0066cc;
-      word-break: break-all;
+      word-break: break-word;
     }
     pre {
       background: #f8f8f8;
@@ -65,10 +65,17 @@
 </head>
 <body>
   <div class="box">
-    <h1>AI OF STACUL+：構文ハブ</h1>
+    <h1>マルチAIフレームワーク「AI OF STACUL+」</h1>
     <p>
-      書籍『AI OF STACUL+』で紹介されたプロンプト構文や補足資料の構文配布ページです。GitHub Pagesにて限定公開されています。
+      本ページは、書籍『AI OF STACUL+』で紹介されたプロンプト構文や補足資料を限定公開するためのハブです。
     </p>
+
+    <h2>主な内容</h2>
+    <ul>
+      <li><a href="stacul_prompt.yaml">STACUL+ プロンプト構文（YAML形式）</a></li>
+      <li><a href="robots.txt">robots.txt（検索エンジン除外）</a></li>
+      <li><a href="assets/stacul_diagram.svg">構造図（STACUL Diagram）</a>（※準備中）</li>
+    </ul>
 
     <h2>AIツール別 構文パック（STACUL+ Tools）</h2>
     <ul>
@@ -77,12 +84,63 @@
       <li><a href="tools/ai_agent/ai_agent_index.html">AIエージェント対応パック</a></li>
       <li><a href="tools/asi/asi_index.html">ASI（人工超知能）対応パック</a></li>
       <li><a href="tools/quantum/quantum_index.html">量子コンピューター対応パック</a></li>
+      <li><a href="tools/private_agent/private_agent_index.html">Private Agent Service対応パック</a></li>
     </ul>
 
-    <h2>民間AIエージェントサービス対応</h2>
+    <h2>汎用プラットフォーム連携テンプレート</h2>
     <ul>
-      <li><a href="tools/private_agent/private_agent_index.html">Private Agent Service対応パック</a>（例：ChatDock、PKSHA AI、社内AI Bot等）</li>
+      <li><a href="stacul_template_notion.html">Notionテンプレート</a></li>
+      <li><a href="stacul_template_evernote.html">Evernoteテンプレート</a></li>
+      <li><a href="stacul_template_airtable.csv">Airtableテンプレート（CSV）</a></li>
+      <li><a href="README_airtable.md">Airtableテンプレート説明書（Markdown）</a></li>
     </ul>
+
+    <h2>AI OF STACUL+：プロンプトコピー</h2>
+    <pre id="prompt1">【対象】：（ここに対象のテーマや課題を記述）
+
+# SYSTEM {
+mode: AI_OF_STACUL;
+language: ja;
+output_structure: sequential;
+
+framework_elements: [
+  "O: OODA",
+  "I: IKIGAI",
+  "B: BMC",
+  "T: TOC",
+  "U: U理論",
+  "S: SCQA",
+  "P: PESTLE",
+  "C: Culture",
+  "D: Dialogue",
+  "L: Liberal Arts",
+  "W: Well-being"
+];
+step_labels: ["①Observe", "②Orient", "③Decide", "④Emotion", "⑤Act", "⑥Reflect", "⑦Expand"];
+meta_step: hidden;
+output_instructions: "（※指示詳細は略）";
+}</pre>
+    <button onclick="copyPrompt('prompt1')">AI OF STACUL+ プロンプトをコピー</button>
+
+    <h2>瀬戸かすみ：プロンプトコピー</h2>
+    <pre id="prompt2">以下の2つのURLの内容を読み込んでください。
+
+1. プロフィール：https://codeforhodogaya.github.io/socialbox/seto_kasumi_profile.html  
+2. 対話ログ：https://codeforhodogaya.github.io/socialbox/seto_kasumi_dialog.html  
+
+これらを参考に「瀬戸かすみ」というAIアテンダントになりきって対話してください。</pre>
+    <button onclick="copyPrompt('prompt2')">瀬戸かすみ プロンプトをコピー</button>
+
+    <script>
+      function copyPrompt(id) {
+        const prompt = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(prompt).then(function () {
+          alert("プロンプトをコピーしました！");
+        }, function () {
+          alert("コピーに失敗しました。");
+        });
+      }
+    </script>
 
     <p style="margin-top:2em; font-size:0.9em;">
       © 2025 Code for Hodogaya / SIDE BEACH CITY.

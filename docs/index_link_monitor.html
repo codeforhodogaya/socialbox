@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Index Link Monitor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f8f9fa;
+      padding: 2em;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #333;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      background: #fff;
+      margin: 0.5em 0;
+      padding: 1em;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .status {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Indexリンク監視ページ</h1>
+  <ul id="link-list">
+    <li><a href="stacul_prompt.yaml" target="_blank">STACUL+ プロンプト構文（YAML形式）</a> <span class="status">⏳</span></li>
+    <li><a href="robots.txt" target="_blank">robots.txt</a> <span class="status">⏳</span></li>
+    <li><a href="assets/stacul_diagram.svg" target="_blank">構造図（STACUL Diagram）</a> <span class="status">⏳</span></li>
+    <li><a href="tools/notebooklm/" target="_blank">NotebookLM対応パック</a> <span class="status">⏳</span></li>
+    <li><a href="tools/cursor/" target="_blank">Cursor対応パック</a> <span class="status">⏳</span></li>
+    <li><a href="seto_kasumi_profile.html" target="_blank">瀬戸かすみプロフィール</a> <span class="status">⏳</span></li>
+    <li><a href="seto_kasumi_dialog.html" target="_blank">瀬戸かすみ会話ログ</a> <span class="status">⏳</span></li>
+  </ul>
+
+  <script>
+    async function checkLinks() {
+      const items = document.querySelectorAll("#link-list li");
+      for (const item of items) {
+        const a = item.querySelector("a");
+        const span = item.querySelector(".status");
+        try {
+          const res = await fetch(a.href, { method: 'HEAD' });
+          if (res.ok) {
+            span.textContent = "✅";
+            span.style.color = "green";
+          } else {
+            span.textContent = "❌";
+            span.style.color = "red";
+          }
+        } catch (err) {
+          span.textContent = "❌";
+          span.style.color = "red";
+        }
+      }
+    }
+
+    window.onload = checkLinks;
+  </script>
+</body>
+</html>

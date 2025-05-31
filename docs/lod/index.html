@@ -7,33 +7,52 @@
   <style>
     body {
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      background-color: #f9f9f9;
+      background-color: #f4f4f4;
       color: #333;
       margin: 2em;
     }
     h1 {
       color: #222;
-      border-bottom: 2px solid #666;
+      border-bottom: 2px solid #444;
       padding-bottom: 0.3em;
     }
-    ul {
-      list-style-type: none;
-      padding: 0;
+    .tabs {
+      display: flex;
+      margin-bottom: 1em;
     }
-    li {
-      background: #fff;
-      margin: 0.5em 0;
+    .tab-button {
+      flex: 1;
       padding: 1em;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 1px 1px 4px rgba(0,0,0,0.05);
+      background-color: #ddd;
+      border: 1px solid #bbb;
+      cursor: pointer;
+      text-align: center;
     }
-    li a {
-      text-decoration: none;
-      color: #0066cc;
+    .tab-button.active {
+      background-color: #fff;
+      border-bottom: none;
       font-weight: bold;
     }
-    li a:hover {
+    .tab-content {
+      display: none;
+      background: #fff;
+      border: 1px solid #bbb;
+      border-top: none;
+      padding: 1.5em;
+      border-radius: 0 0 8px 8px;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .link-item {
+      margin-bottom: 1em;
+    }
+    .link-item a {
+      font-weight: bold;
+      color: #0066cc;
+      text-decoration: none;
+    }
+    .link-item a:hover {
       text-decoration: underline;
     }
     .note {
@@ -44,23 +63,41 @@
 </head>
 <body>
   <h1>STACUL+｜LOD構文 可視化ギャラリー</h1>
-  <ul>
-    <li>
+  <div class="tabs">
+    <div class="tab-button active" onclick="showTab(0)">🔍 ビジュアライズ</div>
+    <div class="tab-button" onclick="showTab(1)">🗂 構文データ</div>
+    <div class="tab-button" onclick="showTab(2)">💡 説明</div>
+  </div>
+  <div class="tab-content active">
+    <div class="link-item">
       <a href="lod_visualization.html" target="_blank">📡 vis-network構文LODビジュアライズ</a><br>
       <span class="note">構文LODを動的ネットワークで表示（JSONデータ連携）</span>
-    </li>
-    <li>
+    </div>
+    <div class="link-item">
       <a href="stacul_framework_mermaid.html" target="_blank">🧭 Mermaid図：視座間構造</a><br>
       <span class="note">各フレームワーク間の相互関係を図示</span>
-    </li>
-    <li>
+    </div>
+    <div class="link-item">
       <a href="stacul_framework_vis.html" target="_blank">🔄 vis-network版：構文全体構造</a><br>
       <span class="note">フレームワーク全体のLOD相関を動的表示</span>
-    </li>
-    <li>
+    </div>
+  </div>
+  <div class="tab-content">
+    <div class="link-item">
       <a href="stacul_data.json" target="_blank">🗂 構文LODデータファイル</a><br>
       <span class="note">JSON形式の構文LOD定義データ</span>
-    </li>
-  </ul>
+    </div>
+  </div>
+  <div class="tab-content">
+    <p class="note">このギャラリーは <strong>AI OF STACUL+</strong> のLOD構文とフレームワーク構造を視覚化したものです。GitHub Pagesを用いて構築されています。</p>
+  </div>
+  <script>
+    function showTab(index) {
+      const buttons = document.querySelectorAll('.tab-button');
+      const contents = document.querySelectorAll('.tab-content');
+      buttons.forEach((btn, i) => btn.classList.toggle('active', i === index));
+      contents.forEach((content, i) => content.classList.toggle('active', i === index));
+    }
+  </script>
 </body>
 </html>

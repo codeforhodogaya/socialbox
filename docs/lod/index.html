@@ -4,15 +4,63 @@
 <head>
   <meta charset="UTF-8">
   <title>STACUL+｜LOD構文 可視化ギャラリー</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      margin: 2em;
+    }
+    h1 {
+      color: #222;
+      border-bottom: 2px solid #666;
+      padding-bottom: 0.3em;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      background: #fff;
+      margin: 0.5em 0;
+      padding: 1em;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 1px 1px 4px rgba(0,0,0,0.05);
+    }
+    li a {
+      text-decoration: none;
+      color: #0066cc;
+      font-weight: bold;
+    }
+    li a:hover {
+      text-decoration: underline;
+    }
+    .note {
+      font-size: 0.9em;
+      color: #666;
+    }
+  </style>
 </head>
 <body>
   <h1>STACUL+｜LOD構文 可視化ギャラリー</h1>
-  <p>以下は、AI OF STACUL+に関連するLOD構文の可視化リストです。</p>
   <ul>
-    <li><a href="lod_visualization.html" target="_blank">📡 vis-network構文LODビジュアライズ（JSON参照）</a></li>
-    <li><a href="stacul_framework_mermaid.html" target="_blank">🧭 Mermaid図：視座間構造</a></li>
-    <li><a href="stacul_framework_vis.html" target="_blank">🔄 Mermaid図：構文全体構造（vis-network）</a></li>
+    <li>
+      <a href="lod_visualization.html" target="_blank">📡 vis-network構文LODビジュアライズ</a><br>
+      <span class="note">構文LODを動的ネットワークで表示（JSONデータ連携）</span>
+    </li>
+    <li>
+      <a href="stacul_framework_mermaid.html" target="_blank">🧭 Mermaid図：視座間構造</a><br>
+      <span class="note">各フレームワーク間の相互関係を図示</span>
+    </li>
+    <li>
+      <a href="stacul_framework_vis.html" target="_blank">🔄 vis-network版：構文全体構造</a><br>
+      <span class="note">フレームワーク全体のLOD相関を動的表示</span>
+    </li>
+    <li>
+      <a href="stacul_data.json" target="_blank">🗂 構文LODデータファイル</a><br>
+      <span class="note">JSON形式の構文LOD定義データ</span>
+    </li>
   </ul>
-  <p>構文LODデータ：<a href="stacul_data.json" target="_blank">🗂 stacul_data.json</a></p>
 </body>
 </html>

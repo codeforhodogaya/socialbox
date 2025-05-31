@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>STACUL+ フレームワーク相関図 (vis-network)</title>
+  <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  <style>
+    #network {
+      width: 100%;
+      height: 600px;
+      border: 1px solid lightgray;
+    }
+  </style>
+</head>
+<body>
+  <h2>STACUL+ フレームワーク相関図</h2>
+  <div id="network"></div>
+  <script>
+    const nodes = new vis.DataSet([
+      { id: "STACUL", label: "STACUL+" },
+      { id: "O", label: "O: OODA" },
+      { id: "I", label: "I: IKIGAI" },
+      { id: "B", label: "B: BMC" },
+      { id: "T", label: "T: TOC" },
+      { id: "U", label: "U: U理論" },
+      { id: "S", label: "S: SCQA" },
+      { id: "P", label: "P: PESTLE" },
+      { id: "C", label: "C: 文化資本" },
+      { id: "D", label: "D: Dialogue" },
+      { id: "L", label: "L: Liberal Arts" },
+      { id: "W", label: "W: Well-being" }
+    ]);
+
+    const edges = new vis.DataSet([
+      { from: "STACUL", to: "O" },
+      { from: "STACUL", to: "I" },
+      { from: "STACUL", to: "B" },
+      { from: "STACUL", to: "T" },
+      { from: "STACUL", to: "U" },
+      { from: "STACUL", to: "S" },
+      { from: "STACUL", to: "P" },
+      { from: "STACUL", to: "C" },
+      { from: "STACUL", to: "D" },
+      { from: "STACUL", to: "L" },
+      { from: "STACUL", to: "W" },
+      { from: "O", to: "I" },
+      { from: "B", to: "T" },
+      { from: "U", to: "D" },
+      { from: "P", to: "C" },
+      { from: "I", to: "W" },
+      { from: "D", to: "W" },
+      { from: "U", to: "W" },
+      { from: "L", to: "O" },
+      { from: "L", to: "I" },
+      { from: "L", to: "U" },
+      { from: "L", to: "P" }
+    ]);
+
+    const container = document.getElementById("network");
+    const data = { nodes: nodes, edges: edges };
+    const options = {
+      nodes: {
+        shape: "box",
+        margin: 10,
+        font: { size: 14, face: "arial" }
+      },
+      edges: {
+        arrows: "to",
+        smooth: false
+      },
+      layout: {
+        improvedLayout: true
+      }
+    };
+    const network = new vis.Network(container, data, options);
+  </script>
+</body>
+</html>

@@ -1,22 +1,105 @@
 {
-  "@context": {
-    "dct": "http://purl.org/dc/terms/",
-    "foaf": "http://xmlns.com/foaf/0.1/",
-    "void": "http://rdfs.org/ns/void#",
-    "stacul": "http://example.org/stacul#"
-  },
-  "@id": "http://example.org/stacul_full_links_star5",
-  "@type": "void:Dataset",
-  "dct:title": "STACUL+ 5-Star LOD Dataset",
-  "dct:creator": {
-    "@id": "http://example.org/people/s-san"
-  },
-  "foaf:homepage": {
-    "@id": "https://codeforhodogaya.github.io/socialbox/"
-  },
-  "void:sparqlEndpoint": {
-    "@id": "https://example.org/sparql"
-  },
-  "void:uriSpace": "http://example.org/stacul#",
-  "void:triples": 123456
+  "nodes": [
+    {
+      "id": 1,
+      "label": "O: OODA",
+      "group": "STACUL"
+    },
+    {
+      "id": 2,
+      "label": "I: IKIGAI",
+      "group": "STACUL"
+    },
+    {
+      "id": 3,
+      "label": "B: BMC",
+      "group": "STACUL"
+    },
+    {
+      "id": 4,
+      "label": "T: TOC",
+      "group": "STACUL"
+    },
+    {
+      "id": 5,
+      "label": "U: U\u7406\u8ad6",
+      "group": "STACUL"
+    },
+    {
+      "id": 6,
+      "label": "S: SCQA",
+      "group": "STACUL"
+    },
+    {
+      "id": 7,
+      "label": "P: PESTLE",
+      "group": "STACUL"
+    },
+    {
+      "id": 8,
+      "label": "C: Culture",
+      "group": "STACUL"
+    },
+    {
+      "id": 9,
+      "label": "D: Dialogue",
+      "group": "STACUL"
+    },
+    {
+      "id": 10,
+      "label": "L: Liberal Arts",
+      "group": "STACUL"
+    },
+    {
+      "id": 11,
+      "label": "W: Well-being",
+      "group": "STACUL"
+    }
+  ],
+  "edges": [
+    {
+      "from": 1,
+      "to": 2
+    },
+    {
+      "from": 1,
+      "to": 3
+    },
+    {
+      "from": 2,
+      "to": 4
+    },
+    {
+      "from": 3,
+      "to": 5
+    },
+    {
+      "from": 4,
+      "to": 6
+    },
+    {
+      "from": 5,
+      "to": 7
+    },
+    {
+      "from": 6,
+      "to": 8
+    },
+    {
+      "from": 7,
+      "to": 9
+    },
+    {
+      "from": 8,
+      "to": 10
+    },
+    {
+      "from": 9,
+      "to": 11
+    },
+    {
+      "from": 10,
+      "to": 1
+    }
+  ]
 }

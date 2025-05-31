@@ -1,0 +1,160 @@
+{
+  "nodes": [
+    {
+      "id": 1,
+      "label": "O: OODA",
+      "group": "STACUL",
+      "color": {
+        "background": "#FF6B6B",
+        "border": "#333333"
+      },
+      "title": "O: OODA に関する説明文（仮）です。"
+    },
+    {
+      "id": 2,
+      "label": "I: IKIGAI",
+      "group": "STACUL",
+      "color": {
+        "background": "#FFD93D",
+        "border": "#333333"
+      },
+      "title": "I: IKIGAI に関する説明文（仮）です。"
+    },
+    {
+      "id": 3,
+      "label": "B: BMC",
+      "group": "STACUL",
+      "color": {
+        "background": "#6BCB77",
+        "border": "#333333"
+      },
+      "title": "B: BMC に関する説明文（仮）です。"
+    },
+    {
+      "id": 4,
+      "label": "T: TOC",
+      "group": "STACUL",
+      "color": {
+        "background": "#4D96FF",
+        "border": "#333333"
+      },
+      "title": "T: TOC に関する説明文（仮）です。"
+    },
+    {
+      "id": 5,
+      "label": "U: U理論",
+      "group": "STACUL",
+      "color": {
+        "background": "#845EC2",
+        "border": "#333333"
+      },
+      "title": "U: U理論 に関する説明文（仮）です。"
+    },
+    {
+      "id": 6,
+      "label": "S: SCQA",
+      "group": "STACUL",
+      "color": {
+        "background": "#F9C80E",
+        "border": "#333333"
+      },
+      "title": "S: SCQA に関する説明文（仮）です。"
+    },
+    {
+      "id": 7,
+      "label": "P: PESTLE",
+      "group": "STACUL",
+      "color": {
+        "background": "#00C9A7",
+        "border": "#333333"
+      },
+      "title": "P: PESTLE に関する説明文（仮）です。"
+    },
+    {
+      "id": 8,
+      "label": "C: Culture",
+      "group": "STACUL",
+      "color": {
+        "background": "#FF9671",
+        "border": "#333333"
+      },
+      "title": "C: Culture に関する説明文（仮）です。"
+    },
+    {
+      "id": 9,
+      "label": "D: Dialogue",
+      "group": "STACUL",
+      "color": {
+        "background": "#0081CF",
+        "border": "#333333"
+      },
+      "title": "D: Dialogue に関する説明文（仮）です。"
+    },
+    {
+      "id": 10,
+      "label": "L: Liberal Arts",
+      "group": "STACUL",
+      "color": {
+        "background": "#C34A36",
+        "border": "#333333"
+      },
+      "title": "L: Liberal Arts に関する説明文（仮）です。"
+    },
+    {
+      "id": 11,
+      "label": "W: Well-being",
+      "group": "STACUL",
+      "color": {
+        "background": "#FFC75F",
+        "border": "#333333"
+      },
+      "title": "W: Well-being に関する説明文（仮）です。"
+    }
+  ],
+  "edges": [
+    {
+      "from": 1,
+      "to": 2
+    },
+    {
+      "from": 1,
+      "to": 3
+    },
+    {
+      "from": 2,
+      "to": 4
+    },
+    {
+      "from": 3,
+      "to": 5
+    },
+    {
+      "from": 4,
+      "to": 6
+    },
+    {
+      "from": 5,
+      "to": 7
+    },
+    {
+      "from": 6,
+      "to": 8
+    },
+    {
+      "from": 7,
+      "to": 9
+    },
+    {
+      "from": 8,
+      "to": 10
+    },
+    {
+      "from": 9,
+      "to": 11
+    },
+    {
+      "from": 10,
+      "to": 1
+    }
+  ]
+}

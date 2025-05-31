@@ -3,148 +3,101 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="robots" content="noindex, nofollow">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI OF STACUL+</title>
+  <title>STACUL+｜LOD構文 可視化ギャラリー</title>
   <style>
     body {
-      font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       background-color: #f4f4f4;
-      margin: 0;
-      padding: 1em;
       color: #333;
+      margin: 2em;
     }
-    h1, h2 {
-      font-size: 1.5em;
+    h1 {
       color: #222;
-      margin-top: 1em;
+      border-bottom: 2px solid #444;
+      padding-bottom: 0.3em;
     }
-    p {
-      line-height: 1.6;
+    .tabs {
+      display: flex;
+      margin-bottom: 1em;
     }
-    .box {
-      background: white;
-      padding: 1.5em;
-      border-radius: 10px;
-      max-width: 900px;
-      margin: auto;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    a {
-      color: #0066cc;
-      word-break: break-word;
-    }
-    pre {
-      background: #f8f8f8;
+    .tab-button {
+      flex: 1;
       padding: 1em;
-      overflow-x: auto;
-      white-space: pre-wrap;
-      word-wrap: break-word;
-    }
-    button {
-      margin-top: 1em;
-      padding: 0.5em 1em;
-      background-color: #0066cc;
-      color: white;
-      border: none;
-      border-radius: 5px;
+      background-color: #ddd;
+      border: 1px solid #bbb;
       cursor: pointer;
+      text-align: center;
     }
-    button:hover {
-      background-color: #004999;
+    .tab-button.active {
+      background-color: #fff;
+      border-bottom: none;
+      font-weight: bold;
     }
-    @media screen and (max-width: 600px) {
-      body {
-        padding: 1em;
-      }
-      .box {
-        padding: 1em;
-      }
+    .tab-content {
+      display: none;
+      background: #fff;
+      border: 1px solid #bbb;
+      border-top: none;
+      padding: 1.5em;
+      border-radius: 0 0 8px 8px;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .link-item {
+      margin-bottom: 1em;
+    }
+    .link-item a {
+      font-weight: bold;
+      color: #0066cc;
+      text-decoration: none;
+    }
+    .link-item a:hover {
+      text-decoration: underline;
+    }
+    .note {
+      font-size: 0.9em;
+      color: #666;
     }
   </style>
 </head>
 <body>
-  <div class="box">
-    <h1>マルチAIフレームワーク
-      「AI OF STACUL+」</h1>
-    <p>本ページは、書籍『AI OF STACUL+』で紹介されたプロンプト構文や補足資料を限定公開するためのハブです。</p>
-
-    <h2>主なリンク</h2>
-    <ul>
-      <li><a href="stacul_prompt.yaml">STACUL+ プロンプト構文（YAML形式）</a></li>
-      <li><a href="robots.txt">robots.txt（検索エンジン除外）</a></li>
-      <li><a href="assets/stacul_diagram.svg">構造図（STACUL Diagram）</a></li>
-    </ul>
-
-    <h2>AIツール別 構文パック</h2>
-    <ul>
-      <li><a href="tools/notebooklm/notebooklm_index.html">NotebookLM対応パック</a></li>
-      <li><a href="tools/cursor/cursor_index.html">Cursor対応パック</a></li>
-      <li><a href="tools/ai_agent/ai_agent_index.html">AIエージェント向け</a></li>
-      <li><a href="tools/asi/asi_index.html">ASI（人工超知能）向け</a></li>
-      <li><a href="tools/quantum/quantum_index.html">量子コンピューター向け</a></li>
-      <li><a href="stacul_template_notion.html">Notion対応テンプレート</a></li>
-      <li><a href="stacul_template_evernote.html">Evernote対応テンプレート</a></li>
-      <li><a href="stacul_template_airtable.csv">Airtableテンプレート（CSV）</a></li>
-      <li><a href="README_airtable.md">Airtable利用ガイド（Markdown）</a></li>
-      <li><a href="tools/private_agent/private_agent_index.html">民間AIエージェントサービス対応</a></li>
-    </ul>
-
-    <h2>AI OF STACUL+：プロンプトコピー</h2>
-    <pre id="prompt1">【対象】：（ここに対象のテーマ・人物・組織・団体・課題・問題・事象などを記述）
-
-# SYSTEM {
-mode: AI_OF_STACUL;
-language: ja;
-output_structure: sequential;
-framework_elements: [
-  "O: OODA（観察・意味づけ・決定・行動）",
-  "I: IKIGAI（好き・得意・必要・報酬）",
-  "B: BMC（価値構造とビジネスモデル）",
-  "T: TOC（制約理論）",
-  "U: U理論（未来への共鳴と変容）",
-  "S: SCQA（状況・問い・答え）",
-  "P: PESTLE（外部環境分析）",
-  "C: Culture（文化資本）",
-  "D: Dialogue（対話設計）",
-  "L: Liberal Arts（教養）",
-  "W: Well-being（幸せの4因子）"
-];
-step_labels: ["①Observe", "②Orient", "③Decide", "④Emotion", "⑤Act", "⑥Reflect", "⑦Expand"];
-meta_step: hidden;
-}</pre>
-    <button onclick="copyPrompt('prompt1')">AI OF STACUL+ プロンプトをコピー</button>
-
-    <h2>瀬戸かすみ：プロンプトコピー</h2>
-    <pre id="prompt2">以下の2つのURLの内容を読み込んでください。
-
-1. https://codeforhodogaya.github.io/socialbox/seto_kasumi_profile.html  
-2. https://codeforhodogaya.github.io/socialbox/seto_kasumi_dialog.html
-
-これらを参考に「瀬戸かすみ」というAIアテンダントになりきって対話してください。
-</pre>
-    <button onclick="copyPrompt('prompt2')">瀬戸かすみ プロンプトをコピー</button>
-
-    <h2>LOD・オープンデータ</h2>
-    <ul>
-      <li><a href="stacul_full_links_star5.ttl">LODリンク集（5つ星対応TTL）</a></li>
-      <li><a href="stacul_lod_visualize.html">構文LODビジュアライズ（HTML版）</a></li>
-    </ul>
-
-    <script>
-      function copyPrompt(id) {
-        const prompt = document.getElementById(id).innerText;
-        navigator.clipboard.writeText(prompt).then(function () {
-          alert("プロンプトをコピーしました！");
-        }, function () {
-          alert("コピーに失敗しました。");
-        });
-      }
-    </script>
-
-    <p style="margin-top:2em; font-size:0.9em;">
-      © 2025 Code for Hodogaya / SIDE BEACH CITY.
-    </p>
+  <h1>STACUL+｜LOD構文 可視化ギャラリー</h1>
+  <div class="tabs">
+    <div class="tab-button active" onclick="showTab(0)">🔍 ビジュアライズ</div>
+    <div class="tab-button" onclick="showTab(1)">🗂 構文データ</div>
+    <div class="tab-button" onclick="showTab(2)">💡 説明</div>
   </div>
+  <div class="tab-content active">
+    <div class="link-item">
+      <a href="lod_visualization.html" target="_blank">📡 vis-network構文LODビジュアライズ</a><br>
+      <span class="note">構文LODを動的ネットワークで表示（JSONデータ連携）</span>
+    </div>
+    <div class="link-item">
+      <a href="stacul_framework_mermaid.html" target="_blank">🧭 Mermaid図：視座間構造</a><br>
+      <span class="note">各フレームワーク間の相互関係を図示</span>
+    </div>
+    <div class="link-item">
+      <a href="stacul_framework_vis.html" target="_blank">🔄 vis-network版：構文全体構造</a><br>
+      <span class="note">フレームワーク全体のLOD相関を動的表示</span>
+    </div>
+  </div>
+  <div class="tab-content">
+    <div class="link-item">
+      <a href="stacul_data.json" target="_blank">🗂 構文LODデータファイル</a><br>
+      <span class="note">JSON形式の構文LOD定義データ</span>
+    </div>
+  </div>
+  <div class="tab-content">
+    <p class="note">このギャラリーは <strong>AI OF STACUL+</strong> のLOD構文とフレームワーク構造を視覚化したものです。GitHub Pagesを用いて構築されています。</p>
+  </div>
+  <script>
+    function showTab(index) {
+      const buttons = document.querySelectorAll('.tab-button');
+      const contents = document.querySelectorAll('.tab-content');
+      buttons.forEach((btn, i) => btn.classList.toggle('active', i === index));
+      contents.forEach((content, i) => content.classList.toggle('active', i === index));
+    }
+  </script>
 </body>
 </html>

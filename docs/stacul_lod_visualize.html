@@ -14,31 +14,31 @@
   </style>
 </head>
 <body>
-  <h1>STACUL+｜構文LODビジュアライズ</h1>
+  <h2>📡 STACUL+｜構文LODビジュアライズ</h2>
   <div id="mynetwork"></div>
 
   <script type="text/javascript">
-    // JSONデータを読み込む
-    fetch('stacul_data.json')
-      .then(response => response.json())
+    // GitHub Pages上の絶対パスで読み込み
+    fetch('https://codeforhodogaya.github.io/socialbox/stacul_data.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('ネットワーク応答エラー');
+        }
+        return response.json();
+      })
       .then(data => {
         const container = document.getElementById('mynetwork');
         const options = {
           nodes: {
             shape: 'dot',
             size: 16,
-            font: {
-              size: 14,
-              color: '#333'
-            },
+            font: { size: 14, color: '#333' },
             borderWidth: 2
           },
           edges: {
             width: 2,
-            color: {inherit: 'from'},
-            smooth: {
-              type: 'dynamic'
-            }
+            color: { inherit: 'from' },
+            smooth: { type: 'dynamic' }
           },
           physics: {
             enabled: true,
@@ -57,10 +57,11 @@
             hideEdgesOnDrag: false
           }
         };
-        const network = new vis.Network(container, data, options);
+        new vis.Network(container, data, options);
       })
       .catch(error => {
-        console.error('JSONの読み込みに失敗しました:', error);
+        console.error('ビジュアライズエラー:', error);
+        document.getElementById('mynetwork').innerText = '可視化の読み込みに失敗しました。';
       });
   </script>
 </body>

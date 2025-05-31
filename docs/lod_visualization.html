@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>STACUL+ LOD構文ビジュアライズ</title>
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <style>
+      #network { width: 100%; height: 600px; border: 1px solid lightgray; }
+      body { font-family: sans-serif; background: #fdfdfd; padding: 2em; }
+      h2 { text-align: center; }
+      .info { text-align: center; font-size: 0.9em; margin-top: 1em; color: #555; }
+    </style>
+</head>
+<body>
+    <h2>STACUL+ LOD構文グラフ（Web可視化）</h2>
+    <div id="network"></div>
+    <div class="info">
+        データ元：
+        <a href="../assets/stacul_data.json" target="_blank">
+            ../assets/stacul_data.json
+        </a>
+    </div>
+    <script>
+    fetch('../assets/stacul_data.json')
+      .then(response => response.json())
+      .then(data => {
+        const nodes = [];
+        const edges = [];
+        const rootId = data["@id"] || "root";
+        nodes.push({ id: rootId, label: "Dataset", shape: "box" });
+
+        for (const [key, value] of Object.entries(data)) {
+          if (key === "@context" || key === "@id" || key === "@type") continue;
+          let targetId = typeof value === "object" && value["@id"] ? value["@id"] : `${rootId}_${key}`;
+          nodes.push({ id: targetId, label: value["@id"] || value.toString(), shape: "ellipse" });
+          edges.push({ from: rootId, to: targetId, label: key });
+        }
+
+        const container = document.getElementById("network");
+        const dataVis = { nodes: new vis.DataSet(nodes), edges: new vis.DataSet(edges) };
+        const options = {
+          nodes: { font: { size: 16 }, shape: "dot", scaling: { label: true } },
+          edges: { arrows: "to", font: { align: "middle" } },
+          layout: { improvedLayout: true }
+        };
+        new vis.Network(container, dataVis, options);
+      });
+    </script>
+</body>
+</html>

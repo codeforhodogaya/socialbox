@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "dct": "http://purl.org/dc/terms/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "void": "http://rdfs.org/ns/void#",
+    "stacul": "http://example.org/stacul#"
+  },
+  "@id": "http://example.org/stacul_full_links_star5",
+  "@type": "void:Dataset",
+  "dct:title": "STACUL+ 5-Star LOD Dataset",
+  "dct:creator": {
+    "@id": "http://example.org/people/s-san"
+  },
+  "foaf:homepage": {
+    "@id": "https://codeforhodogaya.github.io/socialbox/"
+  },
+  "void:sparqlEndpoint": {
+    "@id": "https://example.org/sparql"
+  },
+  "void:uriSpace": "http://example.org/stacul#",
+  "void:triples": 123456
+}

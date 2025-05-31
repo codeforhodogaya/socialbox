@@ -2,101 +2,114 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>STACUL+｜LOD構文 可視化ギャラリー</title>
   <style>
     body {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
-      margin: 2em;
+      font-family: 'Helvetica Neue', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f6f9fc;
     }
-    h1 {
-      color: #222;
-      border-bottom: 2px solid #444;
-      padding-bottom: 0.3em;
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
     }
     .tabs {
       display: flex;
-      margin-bottom: 1em;
+      justify-content: center;
+      margin-top: 1rem;
     }
     .tab-button {
-      flex: 1;
-      padding: 1em;
-      background-color: #ddd;
-      border: 1px solid #bbb;
+      padding: 1rem;
+      margin: 0 0.5rem;
       cursor: pointer;
-      text-align: center;
+      background-color: #ecf0f1;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
     }
     .tab-button.active {
-      background-color: #fff;
-      border-bottom: none;
-      font-weight: bold;
+      background-color: #3498db;
+      color: white;
     }
     .tab-content {
       display: none;
-      background: #fff;
-      border: 1px solid #bbb;
-      border-top: none;
-      padding: 1.5em;
-      border-radius: 0 0 8px 8px;
+      padding: 2rem;
+      max-width: 960px;
+      margin: auto;
     }
     .tab-content.active {
       display: block;
     }
-    .link-item {
-      margin-bottom: 1em;
+    .link-card {
+      background-color: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 1.5rem;
     }
-    .link-item a {
-      font-weight: bold;
-      color: #0066cc;
+    a {
       text-decoration: none;
-    }
-    .link-item a:hover {
-      text-decoration: underline;
+      color: #2980b9;
+      font-weight: bold;
     }
     .note {
-      font-size: 0.9em;
-      color: #666;
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 0.5rem;
     }
   </style>
 </head>
 <body>
-  <h1>STACUL+｜LOD構文 可視化ギャラリー</h1>
+  <header>
+    <h1>STACUL+｜LOD構文 可視化ギャラリー</h1>
+  </header>
+
   <div class="tabs">
-    <div class="tab-button active" onclick="showTab(0)">🔍 ビジュアライズ</div>
-    <div class="tab-button" onclick="showTab(1)">🗂 構文データ</div>
-    <div class="tab-button" onclick="showTab(2)">💡 説明</div>
+    <button class="tab-button active" onclick="showTab('tab1')">🔍 ビジュアライズ</button>
+    <button class="tab-button" onclick="showTab('tab2')">🗂 構文データ</button>
+    <button class="tab-button" onclick="showTab('tab3')">💡 説明</button>
   </div>
-  <div class="tab-content active">
-    <div class="link-item">
-      <a href="lod_visualization.html" target="_blank">📡 vis-network構文LODビジュアライズ</a><br>
-      <span class="note">構文LODを動的ネットワークで表示（JSONデータ連携）</span>
+
+  <div id="tab1" class="tab-content active">
+    <div class="link-card">
+      <a href="lod_visualization.html" target="_blank">📡 vis-network構文LODビジュアライズ</a>
+      <div class="note">構文LODを動的ネットワークで表示（JSONデータ連携）</div>
     </div>
-    <div class="link-item">
-      <a href="stacul_framework_mermaid.html" target="_blank">🧭 Mermaid図：視座間構造</a><br>
-      <span class="note">各フレームワーク間の相互関係を図示</span>
+    <div class="link-card">
+      <a href="stacul_mermaid_structure.html" target="_blank">🧭 Mermaid図：視座間構造</a>
+      <div class="note">各フレームワーク間の相互関係を図示</div>
     </div>
-    <div class="link-item">
-      <a href="stacul_framework_vis.html" target="_blank">🔄 vis-network版：構文全体構造</a><br>
-      <span class="note">フレームワーク全体のLOD相関を動的表示</span>
-    </div>
-  </div>
-  <div class="tab-content">
-    <div class="link-item">
-      <a href="stacul_data.json" target="_blank">🗂 構文LODデータファイル</a><br>
-      <span class="note">JSON形式の構文LOD定義データ</span>
+    <div class="link-card">
+      <a href="stacul_syntax_structure.html" target="_blank">🔄 vis-network版：構文全体構造</a>
+      <div class="note">フレームワーク全体のLOD相関を動的表示</div>
     </div>
   </div>
-  <div class="tab-content">
-    <p class="note">このギャラリーは <strong>AI OF STACUL+</strong> のLOD構文とフレームワーク構造を視覚化したものです。GitHub Pagesを用いて構築されています。</p>
+
+  <div id="tab2" class="tab-content">
+    <div class="link-card">
+      <a href="stacul_data.json" target="_blank">📁 stacul_data.json</a>
+      <div class="note">構文LODに用いられる主要データファイル（JSON形式）</div>
+    </div>
   </div>
+
+  <div id="tab3" class="tab-content">
+    <div class="link-card">
+      <p>本ページでは、AI OF STACUL+のLOD構文および視座間の関係性を可視化しています。GitHub Pages上で公開され、LODチャレンジ等の外部連携にも対応可能です。</p>
+    </div>
+  </div>
+
   <script>
-    function showTab(index) {
+    function showTab(tabId) {
+      const tabs = document.querySelectorAll('.tab-content');
       const buttons = document.querySelectorAll('.tab-button');
-      const contents = document.querySelectorAll('.tab-content');
-      buttons.forEach((btn, i) => btn.classList.toggle('active', i === index));
-      contents.forEach((content, i) => content.classList.toggle('active', i === index));
+      tabs.forEach(tab => tab.classList.remove('active'));
+      buttons.forEach(btn => btn.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      event.target.classList.add('active');
     }
   </script>
 </body>

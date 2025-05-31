@@ -1,12 +1,12 @@
 
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
-  <meta charset="UTF-8">
   <title>STACUL+ 構文LODビジュアライズ</title>
-  <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
-  <style type="text/css">
-    #mynetwork {
+  <script type="text/javascript" src="https://unpkg.com/vis-network@9.1.2/dist/vis-network.min.js"></script>
+  <link href="https://unpkg.com/vis-network@9.1.2/styles/vis-network.min.css" rel="stylesheet" type="text/css" />
+  <style>
+    #network {
       width: 100%;
       height: 800px;
       border: 1px solid lightgray;
@@ -14,54 +14,47 @@
   </style>
 </head>
 <body>
-  <h2>📡 STACUL+｜構文LODビジュアライズ</h2>
-  <div id="mynetwork"></div>
-
-  <script type="text/javascript">
-    // GitHub Pages上の絶対パスで読み込み
-    fetch('https://codeforhodogaya.github.io/socialbox/stacul_data.json')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('ネットワーク応答エラー');
-        }
-        return response.json();
-      })
+  <h2>STACUL+ 構文LODビジュアライズ</h2>
+  <div id="network"></div>
+  <script>
+    fetch('https://codeforhodogaya.github.io/socialbox/lod/stacul_data.json')
+      .then(response => response.json())
       .then(data => {
-        const container = document.getElementById('mynetwork');
+        const nodes = new vis.DataSet(data.nodes);
+        const edges = new vis.DataSet(data.edges);
+
+        const container = document.getElementById('network');
         const options = {
           nodes: {
             shape: 'dot',
             size: 16,
-            font: { size: 14, color: '#333' },
+            font: {
+              size: 14,
+              color: '#000'
+            },
             borderWidth: 2
           },
           edges: {
             width: 2,
             color: { inherit: 'from' },
-            smooth: { type: 'dynamic' }
-          },
-          physics: {
-            enabled: true,
-            solver: 'forceAtlas2Based',
-            forceAtlas2Based: {
-              gravitationalConstant: -50,
-              centralGravity: 0.01,
-              springLength: 100,
-              springConstant: 0.08
-            },
-            timestep: 0.35,
-            stabilization: { iterations: 150 }
+            smooth: {
+              type: 'continuous'
+            }
           },
           interaction: {
-            tooltipDelay: 100,
+            tooltipDelay: 200,
             hideEdgesOnDrag: false
+          },
+          physics: {
+            stabilization: true
           }
         };
-        new vis.Network(container, data, options);
+
+        new vis.Network(container, { nodes, edges }, options);
       })
       .catch(error => {
-        console.error('ビジュアライズエラー:', error);
-        document.getElementById('mynetwork').innerText = '可視化の読み込みに失敗しました。';
+        document.getElementById('network').innerText = 'データの読み込みに失敗しました。';
+        console.error('Error loading the JSON data:', error);
       });
   </script>
 </body>

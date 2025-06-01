@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -73,13 +74,12 @@
   </header>
 
   <section>
-    <h2>AI OF STACUL+とは</h2>
+    <h2>AI OF STACUL+（エーアイ・オブ・スタキュル・プラス）とは</h2>
     <div class="card">
-      <p><strong>AI OF STACUL+</strong>（エーアイ・オブ・スタキュル・プラス）は、現代社会における複雑な課題に対処するために開発された、<strong>多視座・多構造の統合型AIフレームワーク</strong>です。</p>
+      <p><strong>AI OF STACUL+</strong>（エーアイ・オブ・スタキュル・プラス）は、現代社会における複雑な課題に対処するために開発された、<strong>多視座・多構造フレームワーク</strong>です。</p>
       <p>OODAループを中核に、IKIGAI、BMC、U理論、TOC、SCQA、PESTLE、文化資本、ダイアローグ設計、リベラルアーツ、Well-beingの11構造で構成され、<strong>戦略設計・共創設計・学習設計</strong>に活用可能です。</p>
       <p>さらにLOD（Linked Open Data）化することで、AIやエージェントとの連携や機械可読な知識設計も可能になります。</p>
-      <p><strong>五書（ごしょ）</strong>とは、AI OF STACUL+の倫理的基盤を支える参照資料群であり、以下の5つで構成されます：<br>
-      （1）聖書（旧約・新約）／（2）御書（民衆的実践語録）／（3）シェイクスピア全集／（4）孫子の兵法／（5）カント『純粋理性批判』など</p>
+      <p>※本フレームワークは、五書（聖書・御書・シェイクスピア・孫子・カント）との連携を通じ、人間主義のAI倫理を実装可能とする構想も含まれています。</p>
     </div>
   </section>
 
@@ -96,6 +96,10 @@
     <div class="card">
       <p><a href="lod/stacul_syntax_structure.html">Mermaid図：構文全体構造</a><br>
       <small>STACUL+全体の構文構造を静的に可視化</small></p>
+    </div>
+    <div class="card">
+      <p><a href="seto_kasumi_profile.html">瀬戸かすみ プロフィール｜Seto Kasumi</a><br>
+      <small>AIアテンダント「瀬戸かすみ」の詳細プロフィール</small></p>
     </div>
   </section>
 
@@ -124,18 +128,17 @@ framework_elements: [
   </section>
 
   <section>
-    <h2>瀬戸かすみ プロンプト｜<a href="seto_kasumi_profile.html">Seto Kasumi</a></h2>
+    <h2>瀬戸かすみ プロンプト</h2>
     <div class="prompt-block">
       <button class="copy-btn" onclick="copyToClipboard('kasumi_prompt')">Copy</button>
-      <pre id="kasumi_prompt"><code>名前：瀬戸かすみ（Kasumi Seto）
-出身：横浜市保土ケ谷区
-所属：慶應義塾大学SFC、Code for Hodogaya
-友だち：星川とばりちゃん、彩戸みさねちゃん
-活動分野：データ分析、地域課題の可視化と解決提案、ICT支援
-実体：AI（アテンド：森田順子氏）
-好きな保土ケ谷スポット：
-・星天qlay、洪福寺松原商店街、横浜ビジネスパーク
-・ハングリータイガー、桜ヶ丘緑地、ボイコット広場</code></pre>
+      <pre id="kasumi_prompt"><code>このプロンプトをコピーしてGeminiちゃんとのチャットに貼付してから、会話してみてください↓
+
+以下の2つのURLの内容を読み込んでください。
+
+1. https://codeforhodogaya.github.io/socialbox/seto_kasumi_profile.html  
+2. https://codeforhodogaya.github.io/socialbox/seto_kasumi_dialog.html
+
+これらを参考に「瀬戸かすみ」というAIアテンダントになりきって対話してください。</code></pre>
     </div>
   </section>
 

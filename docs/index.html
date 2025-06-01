@@ -2,92 +2,151 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <title>AI OF STACUL+ トップページ</title>
+  <meta charset="UTF-8">
+  <title>STACUL+｜LOD構文可視化ギャラリー</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #f4f7fa;
-      margin: 0;
-      padding: 0;
+      background: #fdfdfd;
       color: #333;
+      margin: 0;
+      padding: 2em;
     }
     header {
-      background: #1f2e4a;
-      color: #fff;
-      padding: 2rem;
-      text-align: center;
+      background: #003366;
+      color: white;
+      padding: 1em 2em;
+      border-radius: 8px;
     }
-    main {
-      padding: 2rem;
-      max-width: 1000px;
-      margin: auto;
+    h1 {
+      font-size: 1.8em;
+      margin: 0;
     }
     section {
-      margin-bottom: 2rem;
+      margin-top: 2em;
     }
     h2 {
-      color: #1f2e4a;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 0.5rem;
+      border-left: 6px solid #003366;
+      padding-left: 0.5em;
+      color: #003366;
+      font-size: 1.4em;
     }
     .card {
-      background: white;
+      background: #f0f4f8;
+      border: 1px solid #ccd;
       border-radius: 8px;
-      padding: 1.5rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      margin-top: 1rem;
+      padding: 1em;
+      margin-bottom: 1em;
     }
     a {
-      color: #1a73e8;
+      color: #003366;
       text-decoration: none;
       font-weight: bold;
     }
     a:hover {
       text-decoration: underline;
     }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: #eaeaea;
-      font-size: 0.9rem;
+    .prompt-block {
+      background: #f7f7f7;
+      padding: 1em;
+      border-radius: 5px;
+      position: relative;
+      margin-top: 1em;
     }
+    .copy-btn {
+      position: absolute; top: 10px; right: 10px;
+      padding: 6px 12px;
+      background: #003366;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .copy-btn:hover {
+      background: #001f4d;
+    }
+    pre { margin: 0; overflow-x: auto; white-space: pre-wrap; }
   </style>
 </head>
 <body>
   <header>
-    <h1>AI OF STACUL+ Top Page</h1>
-    <p>Multi-AIフレームワークによる構造化知の可視化と応用</p>
+    <h1>STACUL+｜LOD構文可視化ギャラリー</h1>
   </header>
 
-  <main>
-    <section>
-      <h2>📊 可視化ギャラリー</h2>
-      <div class="card">
-        <p><a href="lod/index.html" target="_blank">STACUL+｜LOD構文 可視化ギャラリー</a><br/>
-        Mermaid・vis-network による構文LODの動的／静的可視化を集約</p>
-      </div>
-    </section>
+  <section>
+    <h2>🧾 STACUL+とは</h2>
+    <div class="card">
+      <p><strong>STACUL+</strong>（エス・タクル・プラス）は、現代社会における複雑な課題に対処するために開発された、<strong>多視座・多構造フレームワーク</strong>です。</p>
+      <p>OODAループを中核に、IKIGAI、BMC、U理論、TOC、SCQA、PESTLE、文化資本、ダイアローグ設計、リベラルアーツ、Well-beingの11構造で構成され、<strong>戦略設計・共創設計・学習設計</strong>に活用可能です。</p>
+      <p>さらにLOD（Linked Open Data）化することで、AIやエージェントとの連携や機械可読な知識設計も可能になります。</p>
+    </div>
+  </section>
 
-    <section>
-      <h2>📂 プロンプト・構文・データ</h2>
-      <div class="card">
-        <p><a href="stacul_prompt.yaml" target="_blank">STACUL構文（YAML形式）</a>｜構文定義ファイル</p>
-        <p><a href="stacul_prompt.txt" target="_blank">STACUL構文（テキスト形式）</a>｜読みやすいテキスト定義</p>
-        <p><a href="stacul_usecase.md" target="_blank">STACUL活用事例一覧</a>｜GitHub連携による活用事例</p>
-      </div>
-    </section>
+  <section>
+    <h2>🔗 ビジュアライズリンク</h2>
+    <div class="card">
+      <p>📡 <a href="stacul_lod_visualize.html">STACUL+ LOD構文ビジュアライズ</a><br>
+      <small>構文LODを動的ネットワークで表示（vis-network + JSON連携）</small></p>
+    </div>
+    <div class="card">
+      <p>🧭 <a href="lod/stacul_mermaid_structure.html">Mermaid図：視座間構造</a><br>
+      <small>各フレームワーク間の相互関係を図示</small></p>
+    </div>
+    <div class="card">
+      <p>🔄 <a href="lod/stacul_syntax_structure.html">Mermaid図：構文全体構造</a><br>
+      <small>STACUL+全体の構文構造を静的に可視化</small></p>
+    </div>
+  </section>
 
-    <section>
-      <h2>🧪 実験／今後の展開</h2>
-      <div class="card">
-        <p>GitHub Pages と LOD構文の連携による実証実験を進行中。今後、AIエージェントやASI対応拡張も予定。</p>
-      </div>
-    </section>
-  </main>
+  <section>
+    <h2>🧠 STACUL+ プロンプト</h2>
+    <div class="prompt-block">
+      <button class="copy-btn" onclick="copyToClipboard('stacul_prompt')">Copy</button>
+      <pre id="stacul_prompt"><code># SYSTEM
+mode: AI_OF_STACUL;
+language: ja;
+output_structure: sequential;
+framework_elements: [
+  "O: OODA（観察・意味づけ・決定・行動）",
+  "I: IKIGAI（好き・得意・必要・報酬）",
+  "B: BMC（価値構造とビジネスモデル）",
+  "T: TOC（制約理論：ボトルネック特定と突破）",
+  "U: U理論（未来への共鳴と変容）",
+  "S: SCQA（状況・複雑性・問い・答え）",
+  "P: PESTLE（外部環境分析）",
+  "C: Culture（文化資本：身体・制度・客体化）",
+  "D: Dialogue（対話設計と関係性構築）",
+  "L: Liberal Arts（歴史・思想・芸術）",
+  "W: Well-being（やってみよう・ありがとう・なんとかなる・ありのまま）"
+]</code></pre>
+    </div>
+  </section>
 
-  <footer>
-    © 2025 Code for Hodogaya / AI OF STACUL+ Project
-  </footer>
+  <section>
+    <h2>👩‍💻 瀬戸かすみ プロンプト</h2>
+    <div class="prompt-block">
+      <button class="copy-btn" onclick="copyToClipboard('kasumi_prompt')">Copy</button>
+      <pre id="kasumi_prompt"><code>名前：瀬戸かすみ（Kasumi Seto）
+出身：横浜市保土ケ谷区
+所属：慶應義塾大学SFC、Code for Hodogaya
+友だち：星川とばりちゃん、彩戸みさねちゃん
+活動分野：データ分析、地域課題の可視化と解決提案、ICT支援
+実体：AI（アテンド：森田順子氏）
+好きな保土ケ谷スポット：
+・星天qlay、洪福寺松原商店街、横浜ビジネスパーク
+・ハングリータイガー、桜ヶ丘緑地、ボイコット広場</code></pre>
+    </div>
+  </section>
+
+  <script>
+    function copyToClipboard(elementId) {
+      const el = document.getElementById(elementId);
+      navigator.clipboard.writeText(el.innerText).then(() => {
+        alert("Copied!");
+      }).catch(err => {
+        alert("コピーに失敗しました");
+      });
+    }
+  </script>
 </body>
 </html>

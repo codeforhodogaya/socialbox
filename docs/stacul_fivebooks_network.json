@@ -1,0 +1,122 @@
+{
+  "nodes": [
+    {
+      "id": "OODA",
+      "group": "視座"
+    },
+    {
+      "id": "IKIGAI",
+      "group": "視座"
+    },
+    {
+      "id": "BMC",
+      "group": "視座"
+    },
+    {
+      "id": "TOC",
+      "group": "視座"
+    },
+    {
+      "id": "U理論",
+      "group": "視座"
+    },
+    {
+      "id": "SCQA",
+      "group": "視座"
+    },
+    {
+      "id": "PESTLE",
+      "group": "視座"
+    },
+    {
+      "id": "Culture",
+      "group": "視座"
+    },
+    {
+      "id": "Dialogue",
+      "group": "視座"
+    },
+    {
+      "id": "LiberalArts",
+      "group": "視座"
+    },
+    {
+      "id": "WellBeing",
+      "group": "視座"
+    },
+    {
+      "id": "聖書",
+      "group": "五書"
+    },
+    {
+      "id": "御書",
+      "group": "五書"
+    },
+    {
+      "id": "シェイクスピア",
+      "group": "五書"
+    },
+    {
+      "id": "孫子",
+      "group": "五書"
+    },
+    {
+      "id": "カント",
+      "group": "五書"
+    }
+  ],
+  "links": [
+    {
+      "source": "OODA",
+      "target": "孫子"
+    },
+    {
+      "source": "IKIGAI",
+      "target": "御書"
+    },
+    {
+      "source": "BMC",
+      "target": "シェイクスピア"
+    },
+    {
+      "source": "TOC",
+      "target": "孫子"
+    },
+    {
+      "source": "U理論",
+      "target": "御書"
+    },
+    {
+      "source": "SCQA",
+      "target": "聖書"
+    },
+    {
+      "source": "PESTLE",
+      "target": "カント"
+    },
+    {
+      "source": "Culture",
+      "target": "シェイクスピア"
+    },
+    {
+      "source": "Dialogue",
+      "target": "御書"
+    },
+    {
+      "source": "LiberalArts",
+      "target": "シェイクスピア"
+    },
+    {
+      "source": "WellBeing",
+      "target": "聖書"
+    },
+    {
+      "source": "WellBeing",
+      "target": "御書"
+    },
+    {
+      "source": "WellBeing",
+      "target": "カント"
+    }
+  ]
+}

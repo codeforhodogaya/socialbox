@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>STACUL+ 視座ネットワーク（忠実再現版）</title>
+  <style>
+    body { margin: 0; background: #111; }
+    svg { width: 100vw; height: 100vh; display: block; }
+    text {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 16px;
+      fill: white;
+      text-anchor: middle;
+    }
+  </style>
+</head>
+<body>
+<svg></svg>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+const width = window.innerWidth;
+const height = window.innerHeight;
+const radius = Math.min(width, height) / 2.5;
+
+// SDGs風カラーパレット
+const colorPalette = [
+  "#e5243b", "#dda63a", "#4c9f38", "#c5192d", "#ff3a21",
+  "#26bde2", "#fcc30b", "#a21942", "#fd6925", "#dd1367",
+  "#fd9d24"
+];
+
+const labels = [
+  "IKIGAI", "BMC", "U理論", "TOC", "SCQA", "PESTLE",
+  "ダイアローグ設計", "Culture", "LiberalArts", "Well-being"
+];
+
+// ノード定義（OODA中心、他は円環）
+const nodes = labels.map((id, i) => {
+  const angle = (2 * Math.PI / labels.length) * i - Math.PI / 2;
+  return {
+    id,
+    fx: width / 2 + radius * Math.cos(angle),
+    fy: height / 2 + radius * Math.sin(angle),
+    color: colorPalette[i % colorPalette.length]
+  };
+});
+nodes.unshift({
+  id: "OODA",
+  fx: width / 2,
+  fy: height / 2,
+  color: "#ffffff"
+});
+
+const links = [
+  { source: "OODA", target: "IKIGAI" },
+  { source: "OODA", target: "BMC" },
+  { source: "OODA", target: "U理論" },
+  { source: "OODA", target: "TOC" },
+  { source: "OODA", target: "SCQA" },
+  { source: "OODA", target: "PESTLE" },
+  { source: "OODA", target: "ダイアローグ設計" },
+  { source: "OODA", target: "Culture" },
+  { source: "OODA", target: "LiberalArts" },
+  { source: "OODA", target: "Well-being" }
+];
+
+// SVG設定
+const svg = d3.select("svg");
+const defs = svg.append("defs");
+
+// グラデーション定義（リンクごとに個別生成）
+links.forEach((link, i) => {
+  const grad = defs.append("linearGradient")
+    .attr("id", "grad" + i)
+    .attr("x1", "0%").attr("y1", "0%")
+    .attr("x2", "100%").attr("y2", "0%");
+  grad.append("stop").attr("offset", "0%").attr("stop-color", "#ffffff");
+  grad.append("stop").attr("offset", "100%").attr("stop-color", colorPalette[i % colorPalette.length]);
+});
+
+// 線描画（ベジェ曲線）
+svg.append("g")
+  .selectAll("path")
+  .data(links)
+  .enter().append("path")
+  .attr("stroke", (d, i) => "url(#grad" + i + ")")
+  .attr("stroke-width", 2.5)
+  .attr("fill", "none")
+  .attr("d", d => {
+    const source = nodes.find(n => n.id === d.source);
+    const target = nodes.find(n => n.id === d.target);
+    const dx = target.fx - source.fx;
+    const dy = target.fy - source.fy;
+    const dr = Math.sqrt(dx * dx + dy * dy) * 1.2;
+    return `M${source.fx},${source.fy}A${dr},${dr} 0 0,1 ${target.fx},${target.fy}`;
+  });
+
+// ノード（円）とラベル
+svg.append("g")
+  .selectAll("circle")
+  .data(nodes)
+  .enter().append("circle")
+  .attr("r", 10)
+  .attr("fill", d => d.color)
+  .attr("cx", d => d.fx)
+  .attr("cy", d => d.fy);
+
+svg.append("g")
+  .selectAll("text")
+  .data(nodes)
+  .enter().append("text")
+  .text(d => d.id)
+  .attr("x", d => d.fx)
+  .attr("y", d => d.fy - 16);
+
+</script>
+</body>
+</html>

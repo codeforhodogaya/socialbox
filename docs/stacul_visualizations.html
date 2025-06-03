@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>STACUL+ 可視化ギャラリー</title>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff;
+      color: #333;
+      padding: 2em;
+      line-height: 1.6;
+    }
+    h2 {
+      border-left: 6px solid #003366;
+      padding-left: 0.5em;
+      color: #003366;
+      margin-top: 2em;
+    }
+    pre.mermaid {
+      background: #f4f4f4;
+      padding: 1em;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<h1>STACUL+ 可視化ギャラリー</h1>
+
+<!-- ① STACUL+ OODA導線マップ -->
+<section>
+  <h2>① STACUL+｜OODA導線マップ</h2>
+  <pre class="mermaid">
+flowchart LR
+    O[Observe：観察] --> I[Orient：方向づけ]
+    I --> D[Decide：意思決定]
+    D --> A[Act：行動]
+    A -->|反映→再観察| O
+  </pre>
+  <p>STACUL+のプロセス全体がこの循環モデルに準拠しており、観察から行動までを可視化しています。</p>
+</section>
+
+<!-- ④ YAMLテンプレート構文ツリー -->
+<section>
+  <h2>② STACUL+｜YAML構文ツリー</h2>
+  <pre class="mermaid">
+mindmap
+  root((STACUL+ 構文))
+    AI-Agent用
+      観察: OODA
+      共鳴: U理論
+      制約: TOC
+      対話: Dialogue
+      構造: SCQA
+    Implementation
+      YAML記述
+        - prompts:
+        - usecase:
+        - metadata:
+  </pre>
+  <p>構文テンプレート全体を俯瞰し、STACUL+における記述の論理構造を視覚的に捉えるための図です。</p>
+</section>
+
+<!-- ③ 五書マッピング図 -->
+<section>
+  <h2>③ STACUL+｜五書×視座 関連図</h2>
+  <pre class="mermaid">
+graph TD
+  Bible[旧約・新約聖書] --> O[Observe]
+  Shakespeare[シェイクスピア] --> D[Dialogue]
+  Gosho[御書] --> W[Well-being]
+  Sunzi[孫子の兵法] --> T[TOC]
+  Kant[カント哲学] --> L[Liberal Arts]
+
+  subgraph 視座
+    O --> I --> B --> T --> U --> S --> P --> C --> D --> L --> W
+  end
+  </pre>
+  <p>五書それぞれの思想的影響を、STACUL+の視座に重ねた構造図です。哲学的接続の可視化を目的としています。</p>
+</section>
+
+</body>
+</html>

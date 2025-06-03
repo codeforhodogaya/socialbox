@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>五書×視座×語彙｜構文ネットワーク図（D3.js）</title>
+  <style>
+    body { margin: 0; font-family: sans-serif; background: #fff; }
+    svg { width: 100vw; height: 100vh; display: block; }
+    .link { stroke-opacity: 0.4; }
+    .node circle { stroke: #fff; stroke-width: 1.5px; }
+    text { font-size: 11px; pointer-events: none; fill: #333; }
+  </style>
+</head>
+<body>
+<svg></svg>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+  const nodes = [
+    // 五書
+    { id: "聖書", group: "五書" },
+    { id: "御書", group: "五書" },
+    { id: "シェイクスピア", group: "五書" },
+    { id: "孫子", group: "五書" },
+    { id: "カント", group: "五書" },
+
+    // 視座
+    { id: "OODA", group: "視座" },
+    { id: "IKIGAI", group: "視座" },
+    { id: "BMC", group: "視座" },
+    { id: "TOC", group: "視座" },
+    { id: "U理論", group: "視座" },
+    { id: "SCQA", group: "視座" },
+    { id: "PESTLE", group: "視座" },
+    { id: "Culture", group: "視座" },
+    { id: "Dialogue", group: "視座" },
+    { id: "LiberalArts", group: "視座" },
+    { id: "WellBeing", group: "視座" },
+
+    // 語彙クラスタ（例）
+    { id: "希望", group: "語彙" },
+    { id: "戦略", group: "語彙" },
+    { id: "対話", group: "語彙" },
+    { id: "形式性", group: "語彙" },
+    { id: "制約", group: "語彙" },
+    { id: "民衆", group: "語彙" },
+    { id: "倫理", group: "語彙" },
+    { id: "構造", group: "語彙" }
+  ];
+
+  const links = [
+    // 五書→視座
+    { source: "聖書", target: "WellBeing" },
+    { source: "御書", target: "Dialogue" },
+    { source: "シェイクスピア", target: "LiberalArts" },
+    { source: "孫子", target: "TOC" },
+    { source: "カント", target: "Culture" },
+
+    // 視座→語彙
+    { source: "WellBeing", target: "希望" },
+    { source: "TOC", target: "制約" },
+    { source: "Dialogue", target: "対話" },
+    { source: "LiberalArts", target: "形式性" },
+    { source: "Culture", target: "構造" },
+    { source: "IKIGAI", target: "民衆" },
+    { source: "SCQA", target: "倫理" },
+    { source: "BMC", target: "戦略" }
+  ];
+
+  const svg = d3.select("svg");
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+
+  const color = d3.scaleOrdinal()
+    .domain(["五書", "視座", "語彙"])
+    .range(["#e41a1c", "#377eb8", "#4daf4a"]);
+
+  const simulation = d3.forceSimulation(nodes)
+    .force("link", d3.forceLink(links).id(d => d.id).distance(100))
+    .force("charge", d3.forceManyBody().strength(-250))
+    .force("center", d3.forceCenter(width / 2, height / 2));
+
+  const link = svg.append("g")
+    .attr("stroke", "#999")
+    .attr("stroke-opacity", 0.6)
+    .selectAll("line")
+    .data(links)
+    .enter().append("line")
+    .attr("stroke-width", 2)
+    .attr("stroke", d => {
+      if (d.source.group === "五書") return "#f781bf";
+      if (d.source.group === "視座") return "#a65628";
+      return "#999";
+    });
+
+  const node = svg.append("g")
+    .attr("stroke", "#fff")
+    .attr("stroke-width", 1.5)
+    .selectAll("circle")
+    .data(nodes)
+    .enter().append("circle")
+    .attr("r", 8)
+    .attr("fill", d => color(d.group))
+    .call(drag(simulation));
+
+  const label = svg.append("g")
+    .selectAll("text")
+    .data(nodes)
+    .enter().append("text")
+    .text(d => d.id)
+    .attr("x", 10)
+    .attr("y", 4);
+
+  simulation.on("tick", () => {
+    link
+      .attr("x1", d => d.source.x)
+      .attr("y1", d => d.source.y)
+      .attr("x2", d => d.target.x)
+      .attr("y2", d => d.target.y);
+
+    node
+      .attr("cx", d => d.x)
+      .attr("cy", d => d.y);
+
+    label
+      .attr("x", d => d.x + 12)
+      .attr("y", d => d.y);
+  });
+
+  function drag(simulation) {
+    return d3.drag()
+      .on("start", (event, d) => {
+        if (!event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x;
+        d.fy = d.y;
+      })
+      .on("drag", (event, d) => {
+        d.fx = event.x;
+        d.fy = event.y;
+      })
+      .on("end", (event, d) => {
+        if (!event.active) simulation.alphaTarget(0);
+        d.fx = null;
+        d.fy = null;
+      });
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+# notebook_cursor_support.txt
+
+■ NotebookLM 対応：
+- 本プロンプト構造は章節ごとのPDF文書やMarkdown整形済み文書とセットでNotebookLMに読み込み可能。
+
+■ Cursor 対応：
+- stacul_prompt_template.yaml をプロジェクト内に配置し、拡張機能として読み込み可能。
+- GitHub連携構成であれば、Cursorが自動認識して提示。

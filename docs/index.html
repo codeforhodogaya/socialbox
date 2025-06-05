@@ -1,11 +1,10 @@
 
 <!DOCTYPE html>
-
 <html lang="ja">
 <head>
-<meta charset="utf-8"/>
-<title>マルチAIフレームワーク｜AI OF STACUL+</title>
-<style>
+  <meta charset="UTF-8">
+  <title>マルチAIフレームワーク｜AI OF STACUL+</title>
+  <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       background: #fdfdfd;
@@ -70,67 +69,42 @@
   </style>
 </head>
 <body>
-<header>
-<h1>マルチAIフレームワーク｜AI OF STACUL+</h1>
-</header>
-<section>
-<h2>AI OF STACUL+（エーアイ・オブ・スタキュル・プラス）とは</h2>
-<div class="card">
-<p><strong>AI OF STACUL+</strong>（エーアイ・オブ・スタキュル・プラス）は、現代社会における複雑な課題に対処するために開発された、<strong>多視座・多構造フレームワーク</strong>です。</p>
-<p>OODAループを中核に、IKIGAI、BMC、U理論、TOC、SCQA、PESTLE、文化資本、ダイアローグ設計、リベラルアーツ、Well-beingの11構造で構成され、<strong>戦略設計・共創設計・学習設計</strong>に活用可能です。</p>
-<p>さらにLOD（Linked Open Data）化することで、AIやエージェントとの連携や機械可読な知識設計も可能になります。</p>
-<p>※本フレームワークは、五書（聖書・御書・シェイクスピア・孫子・カント）との連携を通じ、人間主義のAI倫理を実装可能とする構想も含まれています。</p>
-</div>
-</section>
+  <header>
+    <h1>マルチAIフレームワーク｜AI OF STACUL+</h1>
+  </header>
 
-<section>
-  <h2>ビジュアライズリンク</h2>
+  <section>
+    <h2>ビジュアライズリンク</h2>
 
-  <div class="card">
-    <p><a href="stacul_lod_visualize.html">STACUL+ LOD構文ビジュアライズ</a><br>
-    <small>構文LODを動的ネットワークで表示（vis-network + JSON連携）</small></p>
-  </div>
+    <div class="card">
+      <p><a href="stacul_lod_visualize.html">STACUL+ LOD構文ビジュアライズ</a><br>
+      <small>構文LODを動的ネットワークで表示（vis-network + JSON連携）</small></p>
+    </div>
 
-  <div class="card">
-    <p><a href="lod/stacul_mermaid_structure.html">Mermaid図：視座間構造</a><br>
-    <small>各フレームワーク間の相互関係を図示</small></p>
-  </div>
+    <div class="card">
+      <p><a href="lod/stacul_mermaid_structure.html">Mermaid図：視座間構造</a><br>
+      <small>各フレームワーク間の相互関係を図示</small></p>
+    </div>
 
-  <div class="card">
-    <p><a href="lod/stacul_syntax_structure.html">Mermaid図：構文全体構造（旧版）</a><br>
-    <small>STACUL+全体の構文構造を静的に可視化（旧構成、縮小表示）</small></p>
-  </div>
+    <div class="card">
+      <p><a href="lod/stacul_syntax_structure.html">Mermaid図：構文全体構造</a><br>
+      <small>STACUL+全体の構文構造を静的に可視化</small></p>
+    </div>
 
-  <div class="card">
-    <p><a href="stacul_circle_network.html">11視座×五書 ネットワーク図（円環型）</a><br>
-    <small>各視座と五書との関係を環状にマッピング（静的図）</small></p>
-  </div>
+    <div class="card">
+      <p><a href="stacul_circle_network.html">11視座 × 五書ネットワーク図（円環型）</a><br>
+      <small>視座と五書の関係を円環ネットワークで可視化</small></p>
+    </div>
 
-  <div class="card">
-    <p><a href="stacul_fivebooks_network.html">五書×視座ネットワーク図（D3.js）</a><br>
-    <small>五書と11視座を動的に表示するネットワーク（グラデーション演出あり）</small></p>
-  </div>
+    <div class="card">
+      <p><a href="stacul_fivebooks_vis_dynamic.html">五書 × 視座ネットワーク図（D3.js）</a><br>
+      <small>D3.jsを用いたインタラクティブな動的ネットワーク表示</small></p>
+    </div>
 
-  <div class="card">
-    <p><a href="lod/stacul_syntax_torus.html">構文ジェネレータートーラス図</a><br>
-    <small>構文要素の循環と連携を示すトーラス型表現</small></p>
-  </div>
-
-  <div class="card">
-    <p><a href="lod/stacul_mapping_map.html">構文実験地図（Syntax Mapping Map）</a><br>
-    <small>STACUL構文の実験・展開領域をマッピングした概念図</small></p>
-  </div>
-
-  <div class="card">
-    <p><a href="lod/stacul_ai_distribution.html">マルチAI構文分布図（NotebookLM／Gemini／Claude対応）</a><br>
-    <small>各AIと構文の対応・活用範囲を可視化したマップ</small></p>
-  </div>
-
-  <div class="card">
-    <p><a href="lod/stacul_radar_chart.html">11視座レーダーチャート</a><br>
-    <small>各視座の強度・関係性をスコア化し、視覚的に表示</small></p>
-  </div>
-
-</section>
+    <div class="card">
+      <p><a href="stacul_visualizations.html">旧版ビジュアライズ集（縮小・ラベル付き）</a><br>
+      <small>過去に生成された可視化図を一括で確認（旧バージョン）</small></p>
+    </div>
+  </section>
 </body>
 </html>

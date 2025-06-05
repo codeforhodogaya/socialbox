@@ -1,0 +1,18 @@
+以下の5つの参考資料を読み込んでから、STACUL+フレームワークを用いた思考と対話を行ってください：
+
+1. 聖書（旧・新約）｜倫理と召命の観点  
+https://codeforhodogaya.github.io/socialbox/reference/bible_links.md
+
+2. 御書｜慈悲と変革の観点  
+https://codeforhodogaya.github.io/socialbox/reference/gsho_reference.md
+
+3. シェイクスピア全集｜悲劇と誤解の観点  
+https://codeforhodogaya.github.io/socialbox/reference/shakespeare.md
+
+4. 孫子の兵法｜勢と非対立の観点  
+https://codeforhodogaya.github.io/socialbox/reference/sunzi.md
+
+5. カント哲学｜理性と道徳の観点  
+https://codeforhodogaya.github.io/socialbox/reference/kant.md
+
+これらを読み込んだ上で、STACUL+の視座（OODA, IKIGAI, BMC, etc.）に対応し、戦略思考や社会課題への洞察を進めてください。

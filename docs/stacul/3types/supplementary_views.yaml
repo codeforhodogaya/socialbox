@@ -1,0 +1,17 @@
+- id: Type-N
+  name: Silent Voice
+  type: 補完視座
+  description: >
+    語られない声・非言語的サイン・空白領域を読み解く。倫理・感情・文化の補完視座。
+
+- id: Type-T
+  name: Temporal Reverse
+  type: 補完視座
+  description: >
+    時間の逆流・未来からの照射を基に構造と戦略を再解釈するテンポラル視座。
+
+- id: Type-K
+  name: Karma
+  type: 補完視座
+  description: >
+    因果応報・ネメシス・報いと責任を扱う視座。人間にもAIにも帰結が訪れるという倫理思想。
